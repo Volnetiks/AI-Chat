@@ -1,4 +1,6 @@
 import 'package:ai_chat/utils/hex_color.dart';
+import 'package:ai_chat/widgets/home_tile.dart';
+import 'package:ai_chat/widgets/rounded_icon.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,9 +13,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
 
+  final List<IconData> navBarItems = [
+    Icons.home_rounded,
+    Icons.grid_view_rounded,
+    Icons.settings_rounded
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor.fromHex("#fbfbfb"),
       body: SafeArea(
         child: Column(
           children: [
@@ -23,46 +32,24 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Container(
-                      margin: const EdgeInsets.all(15),
-                      height: 45,
-                      width: 45,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(90),
-                        color: selectedIndex == 0
-                            ? Colors.lightBlue
-                            : Colors.transparent,
-                      ),
-                      child: Icon(
-                        Icons.home,
-                        color: selectedIndex == 0 ? Colors.white : Colors.black,
-                      ),
-                    ),
+                        margin: const EdgeInsets.all(15),
+                        child: const RoundedIcon(
+                            isActive: true, icon: Icons.person)),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Hello!",
                             style: TextStyle(color: Colors.grey.shade500)),
                         const Text("Volnetiks",
-                            style: TextStyle(fontWeight: FontWeight.bold))
+                            style: TextStyle(fontWeight: FontWeight.w500))
                       ],
                     )
                   ],
                 ),
                 Container(
-                  margin: const EdgeInsets.all(15),
-                  height: 45,
-                  width: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(90),
-                    color: selectedIndex == 0
-                        ? Colors.lightBlue
-                        : Colors.transparent,
-                  ),
-                  child: Icon(
-                    Icons.notifications_rounded,
-                    color: selectedIndex == 0 ? Colors.white : Colors.black,
-                  ),
-                ),
+                    margin: const EdgeInsets.all(15),
+                    child: const RoundedIcon(
+                        isActive: true, icon: Icons.notifications_rounded)),
               ],
             ),
             Container(
@@ -70,6 +57,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text("How's your day? How we can help?",
                   style: TextStyle(fontSize: 45)),
             ),
+            HomeTile()
           ],
         ),
       ),
@@ -84,71 +72,18 @@ class _HomePageState extends State<HomePage> {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = 0;
-                  });
-                },
-                child: Container(
-                  height: 45,
-                  width: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(90),
-                    color: selectedIndex == 0
-                        ? Colors.lightBlue
-                        : Colors.transparent,
-                  ),
-                  child: Icon(
-                    Icons.home,
-                    color: selectedIndex == 0 ? Colors.white : Colors.black,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = 1;
-                  });
-                },
-                child: Container(
-                  height: 45,
-                  width: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(90),
-                    color: selectedIndex == 1
-                        ? Colors.lightBlue
-                        : Colors.transparent,
-                  ),
-                  child: Icon(
-                    Icons.grid_view_rounded,
-                    color: selectedIndex == 1 ? Colors.white : Colors.black,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = 2;
-                  });
-                },
-                child: Container(
-                  height: 45,
-                  width: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(90),
-                    color: selectedIndex == 2
-                        ? Colors.lightBlue
-                        : Colors.transparent,
-                  ),
-                  child: Icon(
-                    Icons.settings_rounded,
-                    color: selectedIndex == 2 ? Colors.white : Colors.black,
-                  ),
-                ),
-              ),
-            ],
+            children: List.generate(
+                navBarItems.length,
+                (index) => GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: RoundedIcon(
+                          isActive: selectedIndex == index,
+                          icon: navBarItems[index]),
+                    )),
           ),
         ),
       ),
