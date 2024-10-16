@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text("How's your day? How we can help?",
                   style: TextStyle(fontSize: 45)),
             ),
-            HomeTile()
+            const HomeTile()
           ],
         ),
       ),
