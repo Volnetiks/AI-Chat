@@ -57,7 +57,23 @@ class _HomePageState extends State<HomePage> {
               child: const Text("How's your day? How we can help?",
                   style: TextStyle(fontSize: 45)),
             ),
-            const HomeTile()
+            const HomeTile(
+              title: "Start a conversation with our AI model.",
+              description:
+                  "Ask anything and our AI will be ready to answer and help you.",
+              color: Colors.lightBlue,
+              buttonContent: "Start message",
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const HomeTile(
+              title: "Talk directly to our ai model with voice note!",
+              description:
+                  "Voice note brings you a more fluid and human like experience.",
+              color: Colors.black,
+              buttonContent: "Start voice",
+            )
           ],
         ),
       ),
