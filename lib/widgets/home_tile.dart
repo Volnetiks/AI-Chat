@@ -1,4 +1,4 @@
-import 'package:ai_chat/clippers/home_clipper.dart';
+import 'package:ai_chat/painters/home_clipper.dart';
 import 'package:flutter/material.dart';
 
 class HomeTile extends StatelessWidget {
