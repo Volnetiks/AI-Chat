@@ -2,6 +2,7 @@ import 'package:ai_chat/painters/home_painter.dart';
 import 'package:ai_chat/utils/hex_color.dart';
 import 'package:ai_chat/widgets/home_tile.dart';
 import 'package:ai_chat/widgets/rounded_icon.dart';
+import 'package:ai_chat/widgets/rounded_icon_navigation.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,7 +39,10 @@ class _HomePageState extends State<HomePage> {
                       Container(
                           margin: const EdgeInsets.all(15),
                           child: const RoundedIcon(
-                              isActive: true, icon: Icons.person)),
+                            icon: Icons.person,
+                            color: Colors.lightBlue,
+                            iconColor: Colors.white,
+                          )),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -52,8 +56,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                       margin: const EdgeInsets.all(15),
-                      child: const RoundedIcon(
-                          isActive: true, icon: Icons.notifications_rounded)),
+                      child: RoundedIcon(
+                        icon: Icons.notifications_outlined,
+                        color: Colors.grey.shade100,
+                        iconColor: Colors.black,
+                      )),
                 ],
               ),
               Container(
@@ -101,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                           selectedIndex = index;
                         });
                       },
-                      child: RoundedIcon(
+                      child: RoundedIconNavigationBar(
                           isActive: selectedIndex == index,
                           icon: navBarItems[index]),
                     )),

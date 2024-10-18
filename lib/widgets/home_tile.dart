@@ -1,3 +1,4 @@
+import 'package:ai_chat/pages/chat.dart';
 import 'package:ai_chat/painters/home_clipper.dart';
 import 'package:flutter/material.dart';
 
@@ -24,16 +25,22 @@ class HomeTile extends StatelessWidget {
         child: Stack(
           alignment: Alignment.bottomRight,
           children: [
-            FractionallySizedBox(
-              widthFactor: 1 / 3 * 0.96,
-              child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(17),
-                    border: Border.all(color: Colors.black, width: 1.5),
-                  ),
-                  width: double.infinity,
-                  height: 220 * 1 / 4 * 0.90,
-                  child: Center(child: Text(buttonContent))),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const ChatPage()));
+              },
+              child: FractionallySizedBox(
+                widthFactor: 1 / 3 * 0.96,
+                child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      border: Border.all(color: Colors.black, width: 1.5),
+                    ),
+                    width: double.infinity,
+                    height: 220 * 1 / 4 * 0.90,
+                    child: Center(child: Text(buttonContent))),
+              ),
             ),
             ClipPath(
               clipper: HomeClipper(),

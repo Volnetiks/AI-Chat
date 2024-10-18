@@ -1,4 +1,5 @@
 import 'package:ai_chat/widgets/rounded_icon.dart';
+import 'package:ai_chat/widgets/rounded_icon_navigation.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
@@ -13,8 +14,11 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading:
-              const RoundedIcon(isActive: false, icon: Icons.person_4_rounded),
+          leading: const RoundedIcon(
+            icon: Icons.person_4_rounded,
+            color: Colors.blue,
+            iconColor: Colors.white,
+          ),
           title: const Text("AI Chat",
               style: TextStyle(color: Colors.black, fontSize: 25)),
           actions: [

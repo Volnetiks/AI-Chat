@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RoundedIcon extends StatelessWidget {
-  const RoundedIcon(
-      {super.key,
-      required this.color,
-      required this.icon,
-      required this.iconColor});
+class RoundedIconNavigationBar extends StatelessWidget {
+  const RoundedIconNavigationBar(
+      {super.key, required this.isActive, required this.icon});
 
-  final Color? color;
+  final bool isActive;
   final IconData icon;
-  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +14,11 @@ class RoundedIcon extends StatelessWidget {
       width: 45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(90),
-        color: color,
+        color: isActive ? Colors.lightBlue : Colors.transparent,
       ),
       child: Icon(
         icon,
-        color: iconColor,
+        color: isActive ? Colors.white : Colors.black,
       ),
     );
   }
