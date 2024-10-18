@@ -20,7 +20,7 @@ class HomeTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: SizedBox(
-        height: 220,
+        height: 200,
         width: double.infinity,
         child: Stack(
           alignment: Alignment.bottomRight,
@@ -38,7 +38,7 @@ class HomeTile extends StatelessWidget {
                       border: Border.all(color: Colors.black, width: 1.5),
                     ),
                     width: double.infinity,
-                    height: 220 * 1 / 4 * 0.90,
+                    height: 200 * 1 / 4 * 0.90,
                     child: Center(child: Text(buttonContent))),
               ),
             ),

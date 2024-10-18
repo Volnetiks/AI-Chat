@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                 buttonContent: "Start message",
               ),
               const SizedBox(
-                height: 15,
+                height: 20,
               ),
               const HomeTile(
                 title: "Talk directly to our ai model with voice note!",
